@@ -12,7 +12,7 @@ enum ColorItems: Codable {
 }
 
 struct Entry: Codable, Identifiable, Hashable {
-    let id: UUID
+    var id: UUID = UUID()
     let name: String
     let date: Date
     let colors: [ColorItems]
@@ -20,4 +20,8 @@ struct Entry: Codable, Identifiable, Hashable {
     let description: String
     let reminder: Bool
     
+}
+
+extension Entry {
+    static var example = Entry(name: "Example", date: Calendar.current.date(byAdding: .day, value: 3, to: Date()) ?? Date(), colors: [.indigo, .white], imageURL: "", description: "", reminder: false)
 }
