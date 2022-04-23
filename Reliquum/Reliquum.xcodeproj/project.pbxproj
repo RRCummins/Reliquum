@@ -11,7 +11,39 @@
 		1ED1C43A28139B5100A15F4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1C43928139B5100A15F4F /* ContentView.swift */; };
 		1ED1C43C28139B5200A15F4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ED1C43B28139B5200A15F4F /* Assets.xcassets */; };
 		1ED1C43F28139B5200A15F4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ED1C43E28139B5200A15F4F /* Preview Assets.xcassets */; };
+		1ED1C44C28139BFB00A15F4F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED1C44B28139BFA00A15F4F /* WidgetKit.framework */; };
+		1ED1C44E28139BFB00A15F4F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED1C44D28139BFB00A15F4F /* SwiftUI.framework */; };
+		1ED1C45128139BFB00A15F4F /* ReliquumWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1C45028139BFB00A15F4F /* ReliquumWidgets.swift */; };
+		1ED1C45428139BFB00A15F4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ED1C45328139BFB00A15F4F /* Assets.xcassets */; };
+		1ED1C45628139BFB00A15F4F /* ReliquumWidgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1C45228139BFB00A15F4F /* ReliquumWidgets.intentdefinition */; };
+		1ED1C45728139BFB00A15F4F /* ReliquumWidgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1C45228139BFB00A15F4F /* ReliquumWidgets.intentdefinition */; };
+		1ED1C45A28139BFB00A15F4F /* ReliquumWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1ED1C44928139BFA00A15F4F /* ReliquumWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1ED1C46028139C5F00A15F4F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1C45F28139C5F00A15F4F /* Entry.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1ED1C45828139BFB00A15F4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1ED1C42C28139B5100A15F4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1ED1C44828139BFA00A15F4F;
+			remoteInfo = ReliquumWidgetsExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1ED1C45E28139BFB00A15F4F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1ED1C45A28139BFB00A15F4F /* ReliquumWidgetsExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1ED1C43428139B5100A15F4F /* Reliquum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reliquum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,6 +51,14 @@
 		1ED1C43928139B5100A15F4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1ED1C43B28139B5200A15F4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ED1C43E28139B5200A15F4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1ED1C44928139BFA00A15F4F /* ReliquumWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ReliquumWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ED1C44B28139BFA00A15F4F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		1ED1C44D28139BFB00A15F4F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		1ED1C45028139BFB00A15F4F /* ReliquumWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReliquumWidgets.swift; sourceTree = "<group>"; };
+		1ED1C45228139BFB00A15F4F /* ReliquumWidgets.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = ReliquumWidgets.intentdefinition; sourceTree = "<group>"; };
+		1ED1C45328139BFB00A15F4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1ED1C45528139BFB00A15F4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1ED1C45F28139C5F00A15F4F /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +69,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1ED1C44628139BFA00A15F4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ED1C44E28139BFB00A15F4F /* SwiftUI.framework in Frameworks */,
+				1ED1C44C28139BFB00A15F4F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -36,6 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				1ED1C43628139B5100A15F4F /* Reliquum */,
+				1ED1C44F28139BFB00A15F4F /* ReliquumWidgets */,
+				1ED1C44A28139BFA00A15F4F /* Frameworks */,
 				1ED1C43528139B5100A15F4F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				1ED1C43428139B5100A15F4F /* Reliquum.app */,
+				1ED1C44928139BFA00A15F4F /* ReliquumWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,6 +105,7 @@
 			children = (
 				1ED1C43728139B5100A15F4F /* ReliquumApp.swift */,
 				1ED1C43928139B5100A15F4F /* ContentView.swift */,
+				1ED1C45F28139C5F00A15F4F /* Entry.swift */,
 				1ED1C43B28139B5200A15F4F /* Assets.xcassets */,
 				1ED1C43D28139B5200A15F4F /* Preview Content */,
 			);
@@ -67,6 +120,26 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		1ED1C44A28139BFA00A15F4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1ED1C44B28139BFA00A15F4F /* WidgetKit.framework */,
+				1ED1C44D28139BFB00A15F4F /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1ED1C44F28139BFB00A15F4F /* ReliquumWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				1ED1C45028139BFB00A15F4F /* ReliquumWidgets.swift */,
+				1ED1C45228139BFB00A15F4F /* ReliquumWidgets.intentdefinition */,
+				1ED1C45328139BFB00A15F4F /* Assets.xcassets */,
+				1ED1C45528139BFB00A15F4F /* Info.plist */,
+			);
+			path = ReliquumWidgets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,15 +150,34 @@
 				1ED1C43028139B5100A15F4F /* Sources */,
 				1ED1C43128139B5100A15F4F /* Frameworks */,
 				1ED1C43228139B5100A15F4F /* Resources */,
+				1ED1C45E28139BFB00A15F4F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1ED1C45928139BFB00A15F4F /* PBXTargetDependency */,
 			);
 			name = Reliquum;
 			productName = Reliquum;
 			productReference = 1ED1C43428139B5100A15F4F /* Reliquum.app */;
 			productType = "com.apple.product-type.application";
+		};
+		1ED1C44828139BFA00A15F4F /* ReliquumWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1ED1C45B28139BFB00A15F4F /* Build configuration list for PBXNativeTarget "ReliquumWidgetsExtension" */;
+			buildPhases = (
+				1ED1C44528139BFA00A15F4F /* Sources */,
+				1ED1C44628139BFA00A15F4F /* Frameworks */,
+				1ED1C44728139BFA00A15F4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReliquumWidgetsExtension;
+			productName = ReliquumWidgetsExtension;
+			productReference = 1ED1C44928139BFA00A15F4F /* ReliquumWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +190,9 @@
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					1ED1C43328139B5100A15F4F = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					1ED1C44828139BFA00A15F4F = {
 						CreatedOnToolsVersion = 13.3.1;
 					};
 				};
@@ -116,6 +211,7 @@
 			projectRoot = "";
 			targets = (
 				1ED1C43328139B5100A15F4F /* Reliquum */,
+				1ED1C44828139BFA00A15F4F /* ReliquumWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +226,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1ED1C44728139BFA00A15F4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ED1C45428139BFB00A15F4F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -137,12 +241,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED1C46028139C5F00A15F4F /* Entry.swift in Sources */,
 				1ED1C43A28139B5100A15F4F /* ContentView.swift in Sources */,
+				1ED1C45728139BFB00A15F4F /* ReliquumWidgets.intentdefinition in Sources */,
 				1ED1C43828139B5100A15F4F /* ReliquumApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1ED1C44528139BFA00A15F4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ED1C45628139BFB00A15F4F /* ReliquumWidgets.intentdefinition in Sources */,
+				1ED1C45128139BFB00A15F4F /* ReliquumWidgets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1ED1C45928139BFB00A15F4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1ED1C44828139BFA00A15F4F /* ReliquumWidgetsExtension */;
+			targetProxy = 1ED1C45828139BFB00A15F4F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1ED1C44028139B5200A15F4F /* Debug */ = {
@@ -262,6 +385,7 @@
 		1ED1C44328139B5200A15F4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,6 +415,7 @@
 		1ED1C44428139B5200A15F4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -317,6 +442,60 @@
 			};
 			name = Release;
 		};
+		1ED1C45C28139BFB00A15F4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XW3YJZ5VVY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReliquumWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ReliquumWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.themrhinos.Reliquum.ReliquumWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1ED1C45D28139BFB00A15F4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XW3YJZ5VVY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReliquumWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ReliquumWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.themrhinos.Reliquum.ReliquumWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -334,6 +513,15 @@
 			buildConfigurations = (
 				1ED1C44328139B5200A15F4F /* Debug */,
 				1ED1C44428139B5200A15F4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1ED1C45B28139BFB00A15F4F /* Build configuration list for PBXNativeTarget "ReliquumWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ED1C45C28139BFB00A15F4F /* Debug */,
+				1ED1C45D28139BFB00A15F4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
