@@ -44,7 +44,16 @@ struct ReliquumWidgetsEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        ZStack {
+            ZStack {
+                LinearGradient(colors: [.indigo, .clear], startPoint: .bottom, endPoint: .topTrailing)
+                LinearGradient(colors: [.pink, .clear], startPoint: .top, endPoint: .bottomLeading)
+                LinearGradient(colors: [.indigo, .clear], startPoint: .topLeading, endPoint: .top)
+            }
+            Text(entry.date, style: .time)
+                .foregroundColor(.white)
+                .font(.title)
+        }
     }
 }
 
