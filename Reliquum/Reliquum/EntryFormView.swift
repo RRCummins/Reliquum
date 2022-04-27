@@ -27,7 +27,12 @@ extension EntryFormView {
             
             let newEntry = Event(name: name, date: date, colors: [color1, color2, colorFont], imageURL: "", description: "", reminder: false)
             
-            UserDefaults.shared.setValue(newEntry, forKey: "1Entry")
+            let userDefaults = UserDefaults.shared
+            do {
+                try userDefaults.setObject(newEntry, forKey: "1Entry")
+            } catch {
+                print(error.localizedDescription)
+            }
             
             WidgetCenter.shared.reloadAllTimelines()
         }
