@@ -11,11 +11,11 @@ import Intents
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+        SimpleEntry(date: Date(), event: Event.example, configuration: ConfigurationIntent())
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
+        let entry = SimpleEntry(date: Date(), event: Event.example, configuration: configuration)
         completion(entry)
     }
 
@@ -23,12 +23,33 @@ struct Provider: IntentTimelineProvider {
         var entries: [SimpleEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
+        
+        let userDefaults = UserDefaults(suiteName: "group.widgetcacheplace")
+        if let event = userDefaults?.value(forKey: "1Event") as? Event {
+            let currentDate = Date()
+            for hourOffset in 0 ..< 5 {
+                let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+                let entry = SimpleEntry(date: entryDate, event: event, configuration: configuration)
+                entries.append(entry)
+            }
+
+        } else {
+            let event = Event.example
+            let currentDate = Date()
+            for hourOffset in 0 ..< 5 {
+                let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+                let entry = SimpleEntry(date: entryDate, event: event, configuration: configuration)
+                entries.append(entry)
+            }
+
         }
+        
+//        let currentDate = Date()
+//        for hourOffset in 0 ..< 5 {
+//            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+//            let entry = SimpleEntry(date: entryDate, event: event, configuration: configuration)
+//            entries.append(entry)
+//        }
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
@@ -37,6 +58,7 @@ struct Provider: IntentTimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
+    let event: Event
     let configuration: ConfigurationIntent
 }
 
@@ -50,10 +72,23 @@ struct ReliquumWidgetsEntryView : View {
                 LinearGradient(colors: [.pink, .clear], startPoint: .top, endPoint: .bottomLeading)
                 LinearGradient(colors: [.indigo, .clear], startPoint: .topLeading, endPoint: .top)
             }
-            Text(entry.date, style: .time)
+            Text("\(daysUntil) until \(entry.event.name)")
                 .foregroundColor(.white)
                 .font(.title)
         }
+    }
+    
+    var daysUntil: String {
+        let components = Calendar.current.dateComponents([.day, .hour], from: entry.date)
+        if let days = components.day, let hours = components.hour {
+            if days < 2 {
+                return "\(days) Days, \(hours) Hours"
+            } else {
+                return "\(days) Days"
+            }
+        }
+        
+        return "\(components.day ?? 0) Days, \(components.hour ?? 0) Hours"
     }
 }
 
@@ -72,7 +107,7 @@ struct ReliquumWidgets: Widget {
 
 struct ReliquumWidgets_Previews: PreviewProvider {
     static var previews: some View {
-        ReliquumWidgetsEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+        ReliquumWidgetsEntryView(entry: SimpleEntry(date: Date(), event: Event.example, configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
