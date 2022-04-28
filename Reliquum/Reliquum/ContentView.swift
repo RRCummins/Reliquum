@@ -7,30 +7,36 @@
 
 import SwiftUI
 
+extension ContentView {
+    class ViewModel: ObservableObject {
+        @Published var entries: [Event] = []
+        @Published var colors: [Color] = [.indigo, .white]
+        
+        init() {
+            loadItems()
+        }
+        
+        func loadItems() {
+            let userDefaults = UserDefaults.shared
+            do {
+                let event = try userDefaults.getObject(forKey: "1Event", castTo: Event.self)
+                entries.append(event)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+}
+
 struct ContentView: View {
-    var entries: [Event] = []
-    @State private var colors:[Color] = [.indigo, .white]
+    @ObservedObject var vm = ViewModel()
+    
     var body: some View {
         NavigationView {
-            VStack {
-                HStack {
-                    Spacer()
-                    NavigationLink {
-                        EntryFormView()
-                    } label: {
-                        Label("Add", systemImage: "plus")
-                            .font(.title)
-                            .labelStyle(.iconOnly)
-                            .padding()
-                            .background(colors[0])
-                            .foregroundColor(colors[1])
-                            .clipShape(Capsule())
-                            .padding(.horizontal)
-                    }
-                    
-                }
-                
-                List(entries) { entry in
+            
+            ZStack(alignment: .bottomTrailing) {
+                List(vm.entries) { entry in
                     HStack {
                         Text(entry.name)
                             .font(.headline)
@@ -44,17 +50,45 @@ struct ContentView: View {
                             .font(.subheadline.italic())
                         
                         Image(systemName: "\(entry.reminder ? "bell.fill" : "bell.slash.fill")")
-                            .foregroundColor(colors[0])
+                            .foregroundColor(vm.colors[0])
                             .padding()
                     }
                 }
+                
+                CommandButton(color1: vm.colors[0], color2: vm.colors[1])
+                    .padding()
             }
+            .navigationTitle("Reliquum")
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(entries: [Event.example])
+        ContentView()
+    }
+}
+
+struct CommandButton: View {
+    var color1: Color
+    var color2: Color
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            NavigationLink {
+                EntryFormView()
+            } label: {
+                Label("Add", systemImage: "plus")
+                    .font(.title)
+                    .labelStyle(.iconOnly)
+                    .padding()
+                    .background(color1)
+                    .foregroundColor(color2)
+                    .clipShape(Capsule())
+                    .padding(.horizontal)
+            }
+            
+        }
     }
 }
