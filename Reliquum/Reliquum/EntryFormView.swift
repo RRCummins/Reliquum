@@ -10,11 +10,11 @@ import SwiftUI
 
 extension EntryFormView {
     class ViewModel: ObservableObject {
-        var name: String = ""
-        var date: Date = Calendar.current.date(byAdding: .day, value: 3, to: Date()) ?? Date()
-        var color1: ColorItems? = .indigo
-        var color2: ColorItems? = .pink
-        var colorFont: ColorItems? = .white
+        @Published var name: String = ""
+        @Published var date: Date = Calendar.current.date(byAdding: .day, value: 3, to: Date()) ?? Date()
+        @Published var color1: ColorItems? = .indigo
+        @Published var color2: ColorItems? = .pink
+        @Published var colorFont: ColorItems? = .white
         
         init() {
             
