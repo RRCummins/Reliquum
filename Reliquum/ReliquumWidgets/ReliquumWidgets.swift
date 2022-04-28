@@ -13,27 +13,26 @@ struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), event: Event.example, configuration: ConfigurationIntent())
     }
-
+    
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         let entry = SimpleEntry(date: Date(), event: Event.example, configuration: configuration)
         completion(entry)
     }
-
+    
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         
-        let userDefaults = UserDefaults(suiteName: "group.widgetcacheplace")
-        if let event = userDefaults?.value(forKey: "1Event") as? Event {
+        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        let userDefaults = UserDefaults.shared
+        do {
+            let event = try userDefaults.getObject(forKey: "1Event", castTo: Event.self)
             let currentDate = Date()
             for hourOffset in 0 ..< 5 {
                 let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
                 let entry = SimpleEntry(date: entryDate, event: event, configuration: configuration)
                 entries.append(entry)
             }
-
-        } else {
+        } catch {
             let event = Event.example
             let currentDate = Date()
             for hourOffset in 0 ..< 5 {
@@ -41,16 +40,35 @@ struct Provider: IntentTimelineProvider {
                 let entry = SimpleEntry(date: entryDate, event: event, configuration: configuration)
                 entries.append(entry)
             }
-
+            print(error.localizedDescription)
         }
+        //        let userDefaults = UserDefaults(suiteName: "group.widgetcacheplace")
+        //        if let event = userDefaults?.value(forKey: "1Event") as? Event {
+        //            let currentDate = Date()
+        //            for hourOffset in 0 ..< 5 {
+        //                let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+        //                let entry = SimpleEntry(date: entryDate, event: event, configuration: configuration)
+        //                entries.append(entry)
+        //            }
+        //
+        //        } else {
+        //            let event = Event.example
+        //            let currentDate = Date()
+        //            for hourOffset in 0 ..< 5 {
+        //                let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+        //                let entry = SimpleEntry(date: entryDate, event: event, configuration: configuration)
+        //                entries.append(entry)
+        //            }
+        //
+        //        }
         
-//        let currentDate = Date()
-//        for hourOffset in 0 ..< 5 {
-//            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-//            let entry = SimpleEntry(date: entryDate, event: event, configuration: configuration)
-//            entries.append(entry)
-//        }
-
+        //        let currentDate = Date()
+        //        for hourOffset in 0 ..< 5 {
+        //            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+        //            let entry = SimpleEntry(date: entryDate, event: event, configuration: configuration)
+        //            entries.append(entry)
+        //        }
+        
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
@@ -64,7 +82,7 @@ struct SimpleEntry: TimelineEntry {
 
 struct ReliquumWidgetsEntryView : View {
     var entry: Provider.Entry
-
+    
     var body: some View {
         ZStack {
             ZStack {
@@ -95,7 +113,7 @@ struct ReliquumWidgetsEntryView : View {
 @main
 struct ReliquumWidgets: Widget {
     let kind: String = "ReliquumWidgets"
-
+    
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             ReliquumWidgetsEntryView(entry: entry)

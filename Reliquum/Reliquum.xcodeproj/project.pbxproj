@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E271D362819F4F100B3DD7E /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4A18F2817637300325A5B /* UserDefaults+Extension.swift */; };
 		1EA2A773281745D0001CA578 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1C45F28139C5F00A15F4F /* Event.swift */; };
 		1EA2A774281745DC001CA578 /* ColorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1C4632813AD4F00A15F4F /* ColorItem.swift */; };
 		1EA4A1902817637300325A5B /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4A18F2817637300325A5B /* UserDefaults+Extension.swift */; };
@@ -277,6 +278,7 @@
 				1EA2A774281745DC001CA578 /* ColorItem.swift in Sources */,
 				1ED1C45628139BFB00A15F4F /* ReliquumWidgets.intentdefinition in Sources */,
 				1EA2A773281745D0001CA578 /* Event.swift in Sources */,
+				1E271D362819F4F100B3DD7E /* UserDefaults+Extension.swift in Sources */,
 				1ED1C45128139BFB00A15F4F /* ReliquumWidgets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
